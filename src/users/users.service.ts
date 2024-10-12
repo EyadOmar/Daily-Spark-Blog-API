@@ -1,10 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class AppService {
+export class UsersService {
   getHello(): { msg: string } {
-    return {
-      msg: 'Hello to daily spark blog',
-    };
+    return { msg: 'Hello to users endpoint' };
   }
 }

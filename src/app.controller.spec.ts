@@ -15,8 +15,10 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return {msg: "Hello to daily spark blog"}', () => {
+      expect(appController.getHello()).toBe({
+        msg: 'Hello to daily spark blog',
+      });
     });
   });
 });
