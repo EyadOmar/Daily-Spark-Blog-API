@@ -22,12 +22,11 @@ export class UsersController {
     @Param() getUsersParamDto: getUsersParamDto,
     @Query() getUsersQueryDto: GetUserQueryDto,
   ) {
-    console.log(
-      typeof getUsersParamDto.id,
-      typeof getUsersQueryDto.limit,
-      typeof getUsersQueryDto.page,
+    return this.userService.findAll(
+      getUsersParamDto.id,
+      getUsersQueryDto.limit,
+      getUsersQueryDto.page,
     );
-    return this.userService.getHello();
   }
 
   @Post()
