@@ -7,6 +7,7 @@ import {
   IsString,
   IsUrl,
   Matches,
+  MaxLength,
   MinLength,
   ValidateNested,
 } from 'class-validator';
@@ -20,6 +21,7 @@ export class CreatePostDto {
   @ApiProperty()
   @IsString()
   @MinLength(4)
+  @MaxLength(512)
   @IsNotEmpty()
   title: string;
 
@@ -35,6 +37,7 @@ export class CreatePostDto {
     description: "For example 'my-url'",
   })
   @IsString()
+  @MaxLength(215)
   @IsNotEmpty()
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message:
@@ -56,6 +59,7 @@ export class CreatePostDto {
   content?: string;
 
   @ApiPropertyOptional()
+  @MaxLength(1024)
   @IsOptional()
   @IsUrl()
   featuredImageUrl?: string;

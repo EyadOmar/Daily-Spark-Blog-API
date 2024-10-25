@@ -46,9 +46,8 @@ export class UsersController {
   }
 
   @Post()
-  addUser(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto);
-    return this.userService.getHello();
+  async addUser(@Body() createUserDto: CreateUserDto) {
+    return await this.userService.createUser(createUserDto);
   }
 
   @Patch()
