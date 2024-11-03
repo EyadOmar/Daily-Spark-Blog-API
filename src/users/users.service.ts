@@ -60,12 +60,7 @@ export class UsersService {
     ];
   }
 
-  findOneById(id: number) {
-    console.log(id);
-    return {
-      firstName: 'Eyad',
-      lastName: 'Omar',
-      email: 'eiad.omar88@gmail.com',
-    };
+  async findOneById(id: number) {
+    return await this.usersRepository.findOneBy({ id });
   }
 }

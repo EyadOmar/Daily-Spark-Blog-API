@@ -5,7 +5,8 @@ import { UsersModule } from 'src/users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './users/user.entity';
+import { TagsModule } from './tags/tags.module';
+import { MetaOptionsModule } from './meta-options/meta-options.module';
 
 @Module({
   controllers: [AppController],
@@ -14,12 +15,13 @@ import { User } from './users/user.entity';
     UsersModule,
     PostsModule,
     AuthModule,
+    TagsModule,
     TypeOrmModule.forRootAsync({
       imports: [],
       inject: [],
       useFactory: () => ({
         type: 'postgres',
-        entities: [User],
+        autoLoadEntities: true,
         synchronize: true,
         username: 'postgres',
         password: 'Ey@d_2109',
@@ -28,6 +30,7 @@ import { User } from './users/user.entity';
         database: 'daily-spark-blog',
       }),
     }),
+    MetaOptionsModule,
   ],
 })
 export class AppModule {}
